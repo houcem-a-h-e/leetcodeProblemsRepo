@@ -1,0 +1,12 @@
+Porblem link: https://leetcode.com/problems/concatenation-of-array/
+
+solution:
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var getConcatenation = function(nums) {
+    let res=[nums.length*2];
+    res=[...nums,...nums];
+    return res;
+};

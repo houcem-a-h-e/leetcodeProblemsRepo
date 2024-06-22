@@ -1,0 +1,22 @@
+Porblem link: https://leetcode.com/problems/shuffle-the-array/
+
+solution:
+/**
+ * @param {number[]} nums
+ * @param {number} n
+ * @return {number[]}
+ */
+var shuffle = function(nums, n) {
+        let i=1,j=n,k=0,res=[];
+        res[k++]=nums[0];
+        while(i<=n && j<n+n){
+            if(k%2===0){
+            res[k++]=nums[i++];
+            }
+            else{
+                res[k++]=nums[j++];
+            }
+            
+        }
+        return res;
+};

@@ -1,0 +1,59 @@
+Porblem link: https://leetcode.com/problems/baseball-game/
+
+solution:
+/**
+ * @param {string[]} operations
+ * @return {number}
+ */
+
+class Stack{
+    constructor(){
+        this.stack=new Array();
+    }
+    push(n){
+        this.stack.push(n);
+    }
+    pop(){
+        return this.stack.pop();
+    }
+    size(){
+        return this.stack.length;
+    }
+    peek(){
+        return this.stack[this.stack.length-1];
+    }
+    beforelast(){
+        return this.stack[this.stack.length-2];
+    }
+} 
+var calPoints = function(operations) {
+        let stack=new Stack();
+        let res=0;
+        operations.forEach(e=>{
+            if(!isNaN(parseInt(e))){
+                stack.push(parseInt(e));
+                res+=parseInt(e);
+            }
+            else if(e==='+'){
+                let top=stack.peek();
+                let before=stack.beforelast();
+                let newTop=stack.peek()+stack.beforelast();
+                stack.push(newTop);
+                res+=newTop;
+            }
+            else if(e==='D'){
+                let newTop=stack.peek()*2;
+                stack.push(newTop);
+                res+=newTop;
+            }
+            else if(e==='C'){
+                let remove=stack.pop();
+                res-=remove;
+               
+                
+            }
+        });
+
+        return res;
+
+};
